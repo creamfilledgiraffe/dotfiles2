@@ -1,0 +1,12 @@
+#! /hint/sh
+# vim: ft=sh
+#
+# Sourced at xdm logins only
+#
+
+#systemctl --user import-environment DISPLAY XAUTHORITY
+#
+#if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+#    dbus-update-activation-environment DISPLAY XAUTHORITY
+#fi
+

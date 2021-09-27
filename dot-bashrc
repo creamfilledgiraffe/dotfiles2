@@ -1,0 +1,51 @@
+#
+# ~/.bashrc
+# vim: ft=sh
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+stty -ixon
+set -o vi
+shopt -s autocd checkwinsize
+
+HISTCONTROL=ignoreboth
+HISTSIZE=10000
+HISTFILESIZE=10000
+
+unset PROMPT_COMMAND
+#[ "$EUID" == "0" ] && PCOL="\[\e[31m]" || PCOL="\[\e[32m]"
+#PS1="[\W]${PCOL}\$\[\e[m\] "
+#PS1="[\[\e[32m\]\u\[\e[m\] \W]\[\e[32m\]\$\[\e[m\] "
+PS1="[\[\e[32m\]\W\[\e[m\]]\[\e[32m\]\$\[\e[m\] "
+
+####
+#### ALIASES
+####
+
+alias ls="ls -hN --color=auto --group-directories-first"
+alias ll="ls -l"
+alias la="ls -lA"
+alias lA="ls -lA"
+alias lR="ls -lAR"
+alias l.="ls -ld .[^.]*"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias diff="diff --color=auto"
+alias rm="rm -vI"
+alias cp="cp -vi"
+alias mv="mv -vi"
+alias mkd="mkdir -pv"
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ffmpeg="ffmpeg -hide_banner"
+alias yta="youtube-dl --add-metadata -i -x -f bestaudio/best"
+alias deorphan='sudo pacman -Rns $(pacman -Qtdq)'
+alias ssu="sudo su -"
+
+function mkcd () {
+	mkdir -pv "$1" && cd "$1"
+}
+

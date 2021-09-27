@@ -1,0 +1,19 @@
+#! /usr/bin/perl
+# vim: ft=perl
+
+use v5.10;
+use strict;
+use warnings;
+
+use Cwd qw(realpath);
+
+my %PATH = ();
+my $count = 0;
+
+foreach (grep { length } map { split /:+/ } @ARGV) {
+	my $p = realpath($_);
+	$PATH{$p} = ++$count if $p && ! $PATH{$p};
+}
+
+say join ':', sort { $PATH{$a} <=> $PATH{$b} } keys %PATH;
+

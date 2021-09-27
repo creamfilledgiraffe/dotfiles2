@@ -1,0 +1,17 @@
+#
+# vim: ft=sh
+
+#dbus-update-activation-environment --systemd DISPLAY XAUTHORITY
+
+# Map CAPS_LOCK to nothing
+setxkbmap -option "caps:none"
+
+xrdb -merge ~/.Xresources
+
+for R in ~/.Xresources.d/* ; do
+	[ -f "$R" ] && xrdb -merge "$R"
+done
+
+exec /usr/bin/startxfce4
+#exec /usr/bin/i3
+

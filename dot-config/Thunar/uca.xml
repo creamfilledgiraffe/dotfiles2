@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<unique-id>1577664885942971-1</unique-id>
+	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
+	<description>Example for a custom action</description>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>geeqie</icon>
+	<name>View Images</name>
+	<unique-id>1577848020958971-1</unique-id>
+	<command>geeqie -f %f</command>
+	<description></description>
+	<patterns>*</patterns>
+	<directories/>
+	<image-files/>
+</action>
+</actions>

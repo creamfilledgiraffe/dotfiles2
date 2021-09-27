@@ -1,0 +1,70 @@
+! vim: ft=xdefaults
+
+#define mono_font xft:dejavu sans mono
+#define clr_foreground #ffffff
+#define clr_background #000000
+
+!! "Gruvbox":
+#define clr_black      #1d2021
+#define clr_red        #cc241d
+#define clr_green      #98971a
+#define clr_yellow     #d79921
+#define clr_blue       #458588
+#define clr_magenta    #b16286
+#define clr_cyan       #689d6a
+#define clr_white      #a89984
+#define clr_br_black   #928374
+#define clr_br_red     #fb4934
+#define clr_br_green   #b8bb26
+#define clr_br_yellow  #fabd2f
+#define clr_br_blue    #83a598
+#define clr_br_magenta #d3869b
+#define clr_br_cyan    #8ec07c
+#define clr_br_white   #ebdbb2
+
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+!Xft.lcdfilter: lcddefault
+
+*color0: clr_black
+*color1: clr_red
+*color2: clr_green
+*color3: clr_yellow
+*color4: clr_blue
+*color5: clr_magenta
+*color6: clr_cyan
+*color7: clr_white
+*color8: clr_br_black
+*color9: clr_br_red
+*color10: clr_br_green
+*color11: clr_br_yellow
+*color12: clr_br_blue
+*color13: clr_br_magenta
+*color14: clr_br_cyan
+*color15: clr_br_white
+*foreground: clr_foreground
+*background: clr_background
+
+!! URxvt resources
+URxvt.intensityStyles:  false
+URxvt.background:  clr_background
+URxvt.foreground:  clr_foreground
+URxvt.depth: 32
+URxvt.font: mono_font:size=14
+URxvt.scrollBar:  false
+URxvt.print-pipe: "cat > /home/rich/urxvt.pipe.txt"
+URxvt.saveLines: 2000
+
+!! Xterm resources
+XTerm.vt100.foreground: clr_foreground
+XTerm.vt100.background: clr_background
+XTerm.vt100.saveLines: 2000
+XTerm.vt100.scrollBar: false
+XTerm.vt100.faceName: mono_font:size=12
+!XTerm*termName: xterm-256color
+xterm*utf8: 2
+

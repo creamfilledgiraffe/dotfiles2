@@ -1,0 +1,26 @@
+#! /hint/sh
+# vim: ft=sh
+#
+# Sourced at tty and xdm logins
+#
+
+PATH="${HOME}/.bin:${PATH}"
+export PATH
+
+systemctl --user import-environment PATH
+
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+    dbus-update-activation-environment PATH
+fi
+
+#: "${XDG_CONFIG_HOME:=${HOME}/.config}"
+#: "${XDG_CACHE_HOME:=${HOME}/.cache}"
+#: "${XDG_DATA_HOME:=${HOME}/.local/share}"
+#export XDG_CONFIG_HOME XDG_CACHE_HOME XDG_DATA_HOME
+
+# If running bash, source the rc file
+if [ -n "$BASH" ] && [ -f "$HOME/.bashrc" ]; then
+	# shellcheck source=/dev/null
+	. "$HOME/.bashrc"
+fi
+

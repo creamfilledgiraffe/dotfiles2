@@ -1,0 +1,23 @@
+#! /bin/bash
+
+#EMPTYSHA="da39a3ee5e6b4b0d3255bfef95601890afd80709"
+EMPTYSHA=$( sha1sum -b /dev/null | sed -s 's/\s.*$//' )
+SHA=$( pacman -Qu | sha1sum -b | sed -e 's/\s.*$//' )
+
+if [ -t 0 ]; then
+	sudo pacman -Fy --noconfirm
+	sudo pacman -Syuw --noconfirm
+else
+	sudo pacman -Fy --noconfirm --noprogressbar
+	sudo pacman -Syuw --noconfirm --noprogressbar
+fi
+
+sudo paccache -r -k 1
+
+if [ "$SHA" != "$(pacman -Qu | sha1sum -b | sed -e 's/\s.*$//' )" ]; then
+	printf "New updates available.\n"
+elif [ "$SHA" == "$EMPTYSHA" ]; then
+	printf "No updates available.\n"
+fi
+
+
